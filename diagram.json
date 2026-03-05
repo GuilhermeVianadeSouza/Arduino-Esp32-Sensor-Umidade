@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "Guilherme Viana",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 54.6, "left": 271.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 67.2, "left": 4.84, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 17.9, "left": -144.2, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 130.8,
+      "left": 320.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 130.8,
+      "left": 368.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 205,
+      "left": 315.95,
+      "rotate": 270,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 205,
+      "left": 363.95,
+      "rotate": 270,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v-9.6", "h220.8" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v0" ] ],
+    [ "esp:GND.3", "bb1:bn.1", "black", [ "h28.8", "v97.3" ] ],
+    [ "esp:26", "bb1:bp.1", "green", [ "h240.15", "v38.4" ] ],
+    [ "r2:1", "bb1:bp.9", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:11b.g", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:bp.5", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:6b.g", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:6b.f", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:5b.f", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:11b.f", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:10b.f", "", [ "$bb" ] ],
+    [ "bb1:5b.g", "bb1:bn.4", "green", [ "v0" ] ],
+    [ "bb1:10b.g", "bb1:bn.8", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
